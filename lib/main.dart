@@ -56,7 +56,7 @@ class App extends StatelessWidget {
       ),
 
       themeMode: ThemeMode.system,
-      initialRoute: "/home",
+      initialRoute: "/",
       routes: {
         "/": (context) => MainPage(),
         HomePage.routeName: (context) => HomePage(),
@@ -73,7 +73,7 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final _storage = new FlutterSecureStorage();
     return FutureBuilder<String?>(
-        future: _storage.read(key: "token"),
+        future: _storage.read(key: "credentials"),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return HomePage();
