@@ -1,3 +1,9 @@
+/*
+ * Developed by Sebastian Müller and Luis Bros.
+ * Last updated: 27.07.21, 20:28.
+ * Copyright (c) 2021 EffnerApp.
+ */
+
 class MOTD {
   final String motd;
 
