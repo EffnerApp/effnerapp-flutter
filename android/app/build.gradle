@@ -1,3 +1,9 @@
+/*
+ * Developed by Sebastian Müller and Luis Bros.
+ * Last updated: 17.07.21, 20:06.
+ * Copyright (c) 2021 EffnerApp.
+ */
+
 def localProperties = new Properties()
 def localPropertiesFile = rootProject.file('local.properties')
 if (localPropertiesFile.exists()) {

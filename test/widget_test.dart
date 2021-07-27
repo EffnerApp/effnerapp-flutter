@@ -1,3 +1,11 @@
+/*
+ * Developed by Sebastian Müller and Luis Bros.
+ * Last updated: 11.07.21, 20:52.
+ * Copyright (c) 2021 EffnerApp.
+ */
+
+import 'package:effnerapp_flutter/main.dart';
+
 // This is a basic Flutter widget test.
 //
 // To perform an interaction with a widget in your test, use the WidgetTester
@@ -7,8 +15,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:effnerapp_flutter/main.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {

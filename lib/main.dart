@@ -1,5 +1,11 @@
-import 'package:effnerapp_flutter/pages/Home.dart';
+/*
+ * Developed by Sebastian Müller and Luis Bros.
+ * Last updated: 27.07.21, 14:55.
+ * Copyright (c) 2021 EffnerApp.
+ */
+
 import 'package:effnerapp_flutter/pages/Login.dart';
+import 'package:effnerapp_flutter/pages/Scaffolding.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
@@ -59,7 +65,7 @@ class App extends StatelessWidget {
       initialRoute: "/",
       routes: {
         "/": (context) => MainPage(),
-        HomePage.routeName: (context) => HomePage(),
+        Scaffolding.routeName: (context) => Scaffolding(),
         Login.routeName: (context) => Login(),
       },
     );
@@ -76,7 +82,7 @@ class MainPage extends StatelessWidget {
         future: _storage.read(key: "credentials"),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            return HomePage();
+            return Scaffolding();
           } else {
             return Login();
           }

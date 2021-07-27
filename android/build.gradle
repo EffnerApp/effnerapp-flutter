@@ -1,3 +1,9 @@
+/*
+ * Developed by Sebastian Müller and Luis Bros.
+ * Last updated: 17.07.21, 19:17.
+ * Copyright (c) 2021 EffnerApp.
+ */
+
 buildscript {
     repositories {
         google()

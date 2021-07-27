@@ -1,3 +1,9 @@
+/*
+ * Developed by Sebastian Müller and Luis Bros.
+ * Last updated: 11.07.21, 20:52.
+ * Copyright (c) 2021 EffnerApp.
+ */
+
 include ':app'
 
 def localPropertiesFile = new File(rootProject.projectDir, "local.properties")

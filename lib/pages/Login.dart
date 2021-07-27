@@ -1,3 +1,9 @@
+/*
+ * Developed by Sebastian Müller and Luis Bros.
+ * Last updated: 17.07.21, 20:09.
+ * Copyright (c) 2021 EffnerApp.
+ */
+
 import 'dart:convert';
 
 import 'package:crypto/crypto.dart';
@@ -154,7 +160,7 @@ class FormText {
 
 Future<Classes> fetchClasses() async {
   final response =
-      await http.get(Uri.parse("https://api.effner.app/data/classes"));
+  await http.get(Uri.parse("https://api.effner.app/data/classes"));
 
   if (response.statusCode == 200) {
     return Classes(jsonDecode(response.body));

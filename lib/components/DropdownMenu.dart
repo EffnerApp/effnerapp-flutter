@@ -1,8 +1,15 @@
+/*
+ * Developed by Sebastian Müller and Luis Bros.
+ * Last updated: 11.07.21, 20:52.
+ * Copyright (c) 2021 EffnerApp.
+ */
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class DropdownMenu extends StatefulWidget {
   final List<String> values;
+
   String get getDropDownValue => _dropdownValue;
 
   const DropdownMenu({Key? key, required this.values}) : super(key: key);
@@ -25,7 +32,7 @@ class _DropdownMenuState extends State<DropdownMenu> {
   Widget build(BuildContext context) {
     final _dropDownItems = widget.values
         .map<DropdownMenuItem<String>>((String value) =>
-            DropdownMenuItem<String>(value: value, child: Text(value)))
+        DropdownMenuItem<String>(value: value, child: Text(value)))
         .toList();
 
     return DropdownButton<String>(
