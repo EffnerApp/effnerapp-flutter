@@ -18,7 +18,7 @@ class DropdownMenu extends StatefulWidget {
   _DropdownMenuState createState() => _DropdownMenuState();
 }
 
-String _dropdownValue = "";
+String _dropdownValue = '';
 
 class _DropdownMenuState extends State<DropdownMenu> {
 

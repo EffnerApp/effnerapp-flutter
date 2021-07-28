@@ -7,7 +7,7 @@
 import 'dart:convert';
 
 import 'package:crypto/crypto.dart';
-import 'package:effnerapp_flutter/components/DropdownMenu.dart';
+import 'package:effnerapp/components/DropdownMenu.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -17,7 +17,7 @@ import 'package:http/http.dart' as http;
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
 
-  static const routeName = "/login";
+  static const routeName = '/login';
 
   @override
   _LoginState createState() => _LoginState();
@@ -25,8 +25,8 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   final _formKey = GlobalKey<FormState>();
-  final FormText _id = new FormText("ID");
-  final FormText _password = new FormText("Passwort", obscureText: true);
+  final FormText _id = new FormText('ID');
+  final FormText _password = new FormText('Passwort', obscureText: true);
 
   late DropdownMenu _dropdownMenu;
   late Future<Classes> futureList;
@@ -41,7 +41,7 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("EffnerApp"),
+          title: Text('EffnerApp'),
           centerTitle: true,
         ),
         body: Container(
@@ -62,7 +62,7 @@ class _LoginState extends State<Login> {
                         Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text("Klasse", style: TextStyle(fontSize: 16)),
+                              Text('Klasse', style: TextStyle(fontSize: 16)),
                               SizedBox(width: 10),
                               FutureBuilder<Classes>(
                                 future: futureList,
@@ -74,7 +74,7 @@ class _LoginState extends State<Login> {
                                     return _dropdownMenu;
                                   } else if (snapshot.hasError) {
                                     _dropdownMenu =
-                                        DropdownMenu(values: ["error"]);
+                                        DropdownMenu(values: ['error']);
                                     return _dropdownMenu;
                                   }
 
@@ -85,7 +85,7 @@ class _LoginState extends State<Login> {
                         SizedBox(height: 20),
                         ElevatedButton(
                             onPressed: login,
-                            child: Text("Anmelden".toUpperCase())),
+                            child: Text('Anmelden'.toUpperCase())),
                       ],
                     ),
                   )
@@ -99,20 +99,20 @@ class _LoginState extends State<Login> {
     if (_formKey.currentState!.validate()) {
       print('form is valid ' +
           _id.value +
-          " " +
+          ' ' +
           _password.value +
-          " " +
+          ' ' +
           _dropdownMenu.getDropDownValue);
 
-      final String credentials = _id.value + ":" + _password.value;
+      final String credentials = _id.value + ':' + _password.value;
       final String time = DateTime.now().millisecondsSinceEpoch.toString();
 
       final response = await http.post(
-          Uri.parse("https://api.effner.app/auth/login"),
+          Uri.parse('https://api.effner.app/auth/login'),
           headers: <String, String>{
             'Authorization': 'Basic ' +
                 sha512
-                    .convert(utf8.encode(credentials + ":" + time))
+                    .convert(utf8.encode(credentials + ':' + time))
                     .toString(),
             'X-Time': time
           });
@@ -120,12 +120,12 @@ class _LoginState extends State<Login> {
       if (response.statusCode == 200) {
         print(response.body);
         Navigator.pushNamedAndRemoveUntil(
-            context, "/home", (Route route) => false);
+            context, '/home', (Route route) => false);
         final _storage = new FlutterSecureStorage();
-        _storage.write(key: "credentials", value: credentials);
-        _storage.write(key: "class", value: _dropdownMenu.getDropDownValue);
+        _storage.write(key: 'credentials', value: credentials);
+        _storage.write(key: 'class', value: _dropdownMenu.getDropDownValue);
       } else {
-        print(response.statusCode.toString() + " " + response.body);
+        print(response.statusCode.toString() + ' ' + response.body);
       }
     } else {
       print('form invalid');
@@ -137,7 +137,7 @@ class FormText {
   final text;
   final bool obscureText;
 
-  String value = "";
+  String value = '';
 
   String get getValue => value;
 
@@ -145,7 +145,7 @@ class FormText {
       obscureText: obscureText,
       validator: (value) {
         if (value!.isEmpty) {
-          return "Bitte alle Felder füllen";
+          return 'Bitte alle Felder füllen';
         }
         return null;
       },
@@ -160,7 +160,7 @@ class FormText {
 
 Future<Classes> fetchClasses() async {
   final response =
-  await http.get(Uri.parse("https://api.effner.app/data/classes"));
+  await http.get(Uri.parse('https://api.effner.app/data/classes'));
 
   if (response.statusCode == 200) {
     return Classes(jsonDecode(response.body));

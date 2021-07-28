@@ -4,8 +4,8 @@
  * Copyright (c) 2021 EffnerApp.
  */
 
-import 'package:effnerapp_flutter/pages/Login.dart';
-import 'package:effnerapp_flutter/pages/Scaffolding.dart';
+import 'package:effnerapp/pages/Login.dart';
+import 'package:effnerapp/pages/Main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
@@ -62,10 +62,10 @@ class App extends StatelessWidget {
       ),
 
       themeMode: ThemeMode.system,
-      initialRoute: "/",
+      initialRoute: '/',
       routes: {
-        "/": (context) => MainPage(),
-        Scaffolding.routeName: (context) => Scaffolding(),
+        '/': (context) => MainPage(),
+        Main.routeName: (context) => Main(),
         Login.routeName: (context) => Login(),
       },
     );
@@ -79,10 +79,10 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final _storage = new FlutterSecureStorage();
     return FutureBuilder<String?>(
-        future: _storage.read(key: "credentials"),
+        future: _storage.read(key: 'credentials'),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            return Scaffolding();
+            return Main();
           } else {
             return Login();
           }

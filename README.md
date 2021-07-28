@@ -1,4 +1,4 @@
-# effnerapp_flutter
+# effnerapp-flutter
 
 An implementation of the EffnerApp in flutter
 

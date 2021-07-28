@@ -4,7 +4,7 @@
  * Copyright (c) 2021 EffnerApp.
  */
 
-import 'package:effnerapp_flutter/main.dart';
+import 'package:effnerapp/main.dart';
 
 // This is a basic Flutter widget test.
 //

@@ -18,7 +18,7 @@ class _SubstitutionState extends State<Substitution> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text("Coole Vertretungen")),
+      body: Center(child: Text('Coole Vertretungen')),
     );
   }
 }

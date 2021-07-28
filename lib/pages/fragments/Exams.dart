@@ -18,7 +18,7 @@ class _ExamsState extends State<Exams> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text("Uncoole Tests")),
+      body: Center(child: Text('Uncoole Tests')),
     );
   }
 }
