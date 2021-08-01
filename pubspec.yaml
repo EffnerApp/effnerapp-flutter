@@ -30,6 +30,10 @@ dependencies:
   crypto: 3.0.1
   json_serializable: 4.1.4
 
+  dsbmobile:
+    git: git://github.com/sebiIO/dsbmobile-dart
+  html: ^0.15.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -35,10 +35,10 @@ class _HomeState extends State<Home> {
     final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
         body: CustomScrollView(
-      physics: ClampingScrollPhysics(),
-      slivers: <Widget>[
-        _sliver1(screenHeight),
-      ],
+          physics: ClampingScrollPhysics(),
+          slivers: <Widget>[
+            _sliver1(screenHeight),
+          ],
     ));
   }
 
@@ -88,6 +88,138 @@ class _HomeState extends State<Home> {
               children: <Widget>[
                 Text(
                   'EffnerApp',
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 25.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: screenHeight * 0.03),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                FutureBuilder<MOTD>(
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        return Text(
+                          snapshot.data!.motd,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 22.0,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        );
+                      } else if (snapshot.hasError) {
+                        return Text(
+                          snapshot.error!.toString(),
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 22.0,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        );
+                      }
+                      return Text(
+                        'Loading ...',
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 22.0,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      );
+                    },
+                    future: motd),
+                SizedBox(height: screenHeight * 0.01),
+                Text(
+                  'Mega spannender Infotext oder aktuelle infos idk?',
+                  style: const TextStyle(
+                    color: Colors.white70,
+                    fontSize: 15.0,
+                  ),
+                ),
+                SizedBox(height: screenHeight * 0.03),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    FlatButton.icon(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 10.0,
+                        horizontal: 20.0,
+                      ),
+                      onPressed: () {},
+                      // TODO: navigate to timetable screen
+                      color: Color(0xFFF36A6A),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                      ),
+                      icon: const Icon(
+                        Icons.today,
+                        color: Colors.white,
+                      ),
+                      label: Text(
+                        'Stundenplan',
+                        style: Styles.buttonTextStyle,
+                      ),
+                      textColor: Colors.white,
+                    ),
+                    FlatButton.icon(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 10.0,
+                        horizontal: 20.0,
+                      ),
+                      onPressed: () {},
+                      // TODO: navigate to mvv screen
+                      color: Color(0xFF86EC82),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                      ),
+                      icon: const Icon(
+                        Icons.train,
+                        color: Colors.white,
+                      ),
+                      label: Text(
+                        'MVV',
+                        style: Styles.buttonTextStyle,
+                      ),
+                      textColor: Colors.white,
+                    ),
+                  ],
+                ),
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  SliverToBoxAdapter _sliver2(double screenHeight) {
+    return SliverToBoxAdapter(
+      child: Container(
+        margin: const EdgeInsets.symmetric(
+          vertical: 10.0,
+          horizontal: 20.0,
+        ),
+        padding: const EdgeInsets.all(20.0),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Color(0xFF83FD74), Color(0xFF61ECFF)],
+          ),
+          borderRadius: BorderRadius.all(
+            Radius.circular(20.0),
+          ),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Text(
+                  'Vertretungen',
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 25.0,
